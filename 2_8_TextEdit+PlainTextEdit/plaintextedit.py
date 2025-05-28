@@ -13,7 +13,7 @@ from PyQt6 import uic
 
 #UI파일 연결
 #단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
-form_class = uic.loadUiType("plaintextedit.ui")[0]
+form_class = uic.loadUiType("2_8_TextEdit+PlainTextEdit/plaintextedit.ui")[0]
 
 #화면을 띄우는데 사용되는 Class 선언
 class WindowClass(QMainWindow, form_class) :
@@ -21,6 +21,25 @@ class WindowClass(QMainWindow, form_class) :
         super().__init__()
         self.setupUi(self)
         #test
+
+        self.btn_printPTE.clicked.connect(self.printPTE)
+        self.btn_clearPTE.clicked.connect(self.clearPTE)
+        self.btn_appendPT.clicked.connect(self.appendPT)
+
+    def printPTE(self) :
+        print(self.plainTextEdit_Test.toPlainText())
+    
+    def clearPTE(self) :
+        self.plainTextEdit_Test.clear()
+
+    def appendPT(self) :
+        self.plainTextEdit_Test.appendPlainText("Append Plain Text")
+
+
+
+
+
+
 
 
 
