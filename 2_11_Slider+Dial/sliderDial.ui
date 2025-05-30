@@ -105,6 +105,55 @@
     <enum>Qt::Vertical</enum>
    </property>
   </widget>
+  <widget class="QDial" name="dial_Test">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>50</y>
+     <width>121</width>
+     <height>111</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelDial">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>170</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Dial Value Here</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>190</y>
+     <width>160</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_10">
+    <item>
+     <widget class="QPushButton" name="btn_DInfo">
+      <property name="text">
+       <string>D_Info</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_DRange">
+      <property name="text">
+       <string>D_Range</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <resources/>
  <connections/>
