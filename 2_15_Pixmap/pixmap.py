@@ -17,7 +17,11 @@ class WindowClass(QMainWindow, form_class) :
         
         self.btn_loadFromFile.clicked.connect(self.loadImageFromFile)
         self.btn_loadFromWeb.clicked.connect(self.loadImageFromWeb)
-        # self.btn_save.clicked.connect(self.saveImageFromWeb)
+        self.btn_save.clicked.connect(self.saveImageFromWeb)
+        self.btn_save.clicked.connect(self.printValue) # spinBox 값이 변경되었을 때, 출력
+
+    def printValue(self) :   # 값이 변경되면 출력하는 기능
+        self.lbl_status.setText("Saved Image!")
 
     def loadImageFromFile(self) :
         #Pixmap 객체 생성
@@ -35,7 +39,9 @@ class WindowClass(QMainWindow, form_class) :
         self.qPixmapWebVar = self.qPixmapWebVar.scaledToWidth(600)
         self.lbl_picture.setPixmap(self.qPixmapWebVar)
 
-
+    def saveImageFromWeb(self) :
+        self.qPixmapSaveVar = self.lbl_picture.pixmap()
+        self.qPixmapSaveVar.save("SavedImage.jpg")
 
 
 
