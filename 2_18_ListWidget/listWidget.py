@@ -50,10 +50,13 @@ class WindowClass(QMainWindow, form_class) :
         self.listWidget_Test.addItem(self.addItemText)
 
     def insertListWidget(self) :
-        self.insertRow = self.spinBox_Test.value()
-        self.insertText = self.line_insertItem.text()
-        self.listWidget_Test.insertItem(self.insertRow, self.insertText)
+        insert_text = self.line_insertItem.text()
+        selected_row = self.listWidget_Test.currentRow()
 
+        if selected_row == -1:
+            self.listWidget_Test.addItem(insert_text)
+        else:
+            self.listWidget_Test.insertItem(selected_row, insert_text)
 
     # Button
     def printCurrentItem(self) :
