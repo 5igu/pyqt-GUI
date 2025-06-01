@@ -20,8 +20,16 @@ class WindowClass(QMainWindow, form_class) :
         self.listWidget_Test.itemDoubleClicked.connect(self.chkItemDoubleClicked)
         self.listWidget_Test.currentItemChanged.connect(self.chkCurrentItemChanged)
 
-    
-    
+        #button
+        self.btn_add.clicked.connect(self.addListWidget)
+        self.btn_insert.clicked.connect(self.insertListWidget)
+
+        self.btn_print.clicked.connect(self.printCurrentItem)
+        self.btn_printMulti.clicked.connect(self.printMultiItems)
+        self.btn_remove.clicked.connect(self.removeCurrentItem)
+        self.btn_clear.clicked.connect(self.clearItem)
+
+
     # List Widget 시그널 함수
     def chkItemClicked(self) :  
         # 1st Item
@@ -42,10 +50,30 @@ class WindowClass(QMainWindow, form_class) :
         self.listWidget_Test.addItem(self.addItemText)
 
     def insertListWidget(self) :
-        self.insertRow = self.spin_insertRow.value()
+        self.insertRow = self.spinBox_Test.value()
         self.insertText = self.line_insertItem.text()
-        self.listWidget_Test.insertItem(self.insertRowm, self.insertText)
+        self.listWidget_Test.insertItem(self.insertRow, self.insertText)
 
+
+    # Button
+    def printCurrentItem(self) :
+        print(self.listWidget_Test.currentItem().text())
+
+    def printMultiItems(self) :
+        self.selectedList = self.listWidget_Test.selectedItems()
+        for i in self.selectedList :
+            print(i.text())
+
+    def removeCurrentItem(self):
+        selected_items = self.listWidget_Test.selectedItems()
+        rows = sorted([self.listWidget_Test.row(i) for i in selected_items], reverse=True)
+
+        for row in rows:
+            self.listWidget_Test.takeItem(row)
+
+
+    def clearItem(self) :
+        self.listWidget_Test.clear()
 
 
 if __name__ == "__main__" :
